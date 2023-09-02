@@ -1,0 +1,23 @@
+{
+  "name": "tic-tac-toe-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@types/socket.io": "^3.0.2",
+    "@types/socket.io-client": "^3.0.0",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "scripts": {
+    "start": "nodemon --watch \"*.ts\" --exec \"ts-node\" ./src/server.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.7",
+    "nodemon": "^3.0.1"
+  }
+}
