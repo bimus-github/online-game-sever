@@ -85,13 +85,13 @@ export const useSocket = (io: SocketType) => {
     });
 
     // delete room
-    socket.on("deleteRoom", (id) => {
+    socket.on("deleteRoom", (room) => {
       // Iterate over all connected users
       Object.keys(connectedUsers).forEach((connectedUserId) => {
         // Skip sending the message to the current user
         if (connectedUserId !== userId) {
           // Emit the message to the socket of each connected user
-          connectedUsers[connectedUserId].emit("deleteRoom", id);
+          connectedUsers[connectedUserId].emit("deleteRoom", room);
         }
       });
     });
@@ -110,6 +110,18 @@ export const useSocket = (io: SocketType) => {
       Object.keys(connectedUsers).forEach((connectedUserId) => {
         if (connectedUserId === id) {
           connectedUsers[connectedUserId].emit("no");
+        }
+      });
+    });
+
+    // update Room
+    socket.on("updateRoom", (room) => {
+      // Iterate over all connected users
+      Object.keys(connectedUsers).forEach((connectedUserId) => {
+        // Skip sending the message to the current user
+        if (connectedUserId !== userId) {
+          // Emit the message to the socket of each connected user
+          connectedUsers[connectedUserId].emit("updateRoom", room);
         }
       });
     });
