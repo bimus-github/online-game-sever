@@ -3,10 +3,17 @@ export interface Room_Type {
   name: string;
   description: string;
   password: string;
-  userX: boolean;
-  userY: boolean;
-  turn: TURN_TYPE;
+  userX: string;
+  userY: string;
   date: Date | string;
+  usernameX: string;
+  usernameY: string;
+  status: STATUS_ENUM;
+}
+
+export enum STATUS_ENUM {
+  EMPTY = "EMPTY",
+  BUSY = "BUSY",
 }
 
 export enum ERROR_ENUM {
